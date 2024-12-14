@@ -10,3 +10,7 @@ SignalR: Real-time communication between the server and the client.
 Entity Framework Core: ORM for data access.
 JWT Authentication: Secure and stateless authentication for API requests.
 SQL Server: For database management.
+
+# Demo Video :
+
+[![Demo Video]](https://www.youtube.com/watch?v=XHTU74Kpjfg)
