@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Chat Page";
+
+    Layout = "_Layout";
+}
+
+<style>
+    body {
+        background-color: #f9f9f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .chat-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        width: 100%;
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+
+    .chat-section {
+        flex: 1 1 45%; 
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 20px; 
+    }
+
+    .chat-header {
+        background-color: #0088cc;
+        color: white;
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .chat-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+        background-color: #e7eff6;
+    }
+
+        .chat-body ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .chat-body ul li {
+                max-width: 70%;
+                margin-bottom: 10px;
+                padding: 10px 15px;
+                border-radius: 20px;
+                font-size: 0.95rem;
+                word-wrap: break-word;
+            }
+
+                .chat-body ul li.sent {
+                    background-color: #0088cc;
+                    color: white;
+                    align-self: flex-end;
+                    margin-left: auto;
+                }
+
+                .chat-body ul li.received {
+                    background-color: #ffffff;
+                    color: #333;
+                    align-self: flex-start;
+                    margin-right: auto;
+                    border: 1px solid #ddd;
+                }
+
+    .chat-footer {
+        padding: 10px 15px;
+        border-top: 1px solid #ddd;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap; 
+    }
+
+        .chat-footer input[type="text"], .chat-footer input[type="submit"] {
+            width: 100%; 
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin-bottom: 10px; 
+            box-sizing: border-box; 
+        }
+
+        .chat-footer input[type="submit"] {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .chat-footer input[type="submit"]:hover {
+                background-color: #006fa1;
+            }
+</style>
+
+
+<script src="~/js/Chat.js"></script>
+
+<div class="chat-container">
+   
+    <div id="publicTalk" class="chat-section">
+        <div class="chat-header">Public Chat</div>
+        <div class="chat-body">
+            <ul id="conversation"></ul>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="messageInp" placeholder="Type your message..." onkeypress="if(event.key === 'Enter') sendPublicMessage();" />
+            <input type="submit" id="sendMessageBtn" value="Send" onclick="sendPublicMessage()" />
+        </div>
+    </div>
+
+  
+    <div id="groupConversation" class="chat-section">
+        <div class="chat-header">Group Chat</div>
+        <div class="chat-body">
+            <ul id="groupConversationUL"></ul>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="groupNameInp" placeholder="Enter group name..." />
+            <input type="submit" id="joinGroupBtn" value="Join" onclick="joinGroup()" />
+            <input type="text" id="messageToGroupInp" placeholder="Type your group message..." onkeypress="if(event.key === 'Enter') sendGroupMessage();" />
+            <input type="submit" id="sendMessageToGroupBtn" value="Send To Group" onclick="sendGroupMessage()" />
+        </div>
+    </div>
+</div>
