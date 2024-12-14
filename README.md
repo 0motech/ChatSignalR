@@ -13,4 +13,4 @@ SQL Server: For database management.
 
 # Demo Video :
 
-[![Demo Video]](https://www.youtube.com/watch?v=XHTU74Kpjfg)
+[![Demo Video](https://github.com/user-attachments/assets/7ada5e3a-86c7-46c5-856b-ba80ea1292b9)](https://www.youtube.com/watch?v=XHTU74Kpjfg)
